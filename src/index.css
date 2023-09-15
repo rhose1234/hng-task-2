@@ -1,3 +1,9 @@
+*{
+  text-decoration: none !important;
+  padding: 0;
+  margin: 0 ;
+}
+
 
 #hero {
   background-image: url('./assets/img/Poster.svg');
@@ -47,4 +53,8 @@ button{
   width: 20px !important;
   height: 20px;
  
+}
+div.movie-card {
+  color: #000 !important;
+  text-decoration: none !important;
 }

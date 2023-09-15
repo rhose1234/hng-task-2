@@ -5,23 +5,23 @@ import tom from "../assets/img/tomato.svg";
 
 
 function Home() {
-  const token = 
-  const [movies, setMovies] = useState([])
+  const apiKey = import.meta.env.API_KEY
+  const [movies, setMovies]=useState([])
 
-  const url = '';
+  const url = 'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1';
   const config = {
     method: 'GET',
     headers: {
-      'Authorization': ``,
+      'Authorization': `Bearer ${apiKey}`,
       'Content-Type': 'application/json'
     }
   }
-
+  
   useEffect(() => {
     fetch(url, config)
     .then(response => {
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error('Network response not ok');
       }
       return response.json();
     })
@@ -64,7 +64,6 @@ function Home() {
     </div>
     </section>
 
-    {/* featured section */}
         <section className='vh-100 '>
           <div className='d-flex justify-content-between p-5'>
             <div className="">
@@ -75,20 +74,31 @@ function Home() {
             </div>
           </div>
 
-          {/* List of movies */}
-          <div className='col-lg-4 col-md-12'>
+        
+          <div className=' container col movie-card'>
+            <div className="row gx-5">
 
             {
               movies.slice(0, 10).map((movie, i) => (
-                <Link to={`/movies/${movie.id}`} className='' key={i} data-testid='movie-card'>
-                  <img data-testid="movie-poster" src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt='movie-poster' className=' w-100'/>
-                  <div>USA <span data-testid="movie-release-date">{movie.release_date}</span></div>
-                  <div className='font-bold h3' data-testid='movie-title'>{movie.title}</div>
-                  <div>Action, Horror, Adventure</div>
+                <Link to={`/movies/${movie.id}`} className='mt-5 w-25' key={i} data-testid='movie-box'>
+                  <img data-testid="movie-img" src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt='movie-img' className=' w-100'/>
+                  <div className=' text-secondary fw-bold mt-2 mb-3'>USA <span data-testid="release-date">{movie.release_date}</span></div>
+                  <div className='font-bold h5 text-dark mt-2 mb-3' data-testid='title'>{movie.title}</div>
+                  <div className="d-flex justify-content-between mt-3 mb-3 fw-normal">
+      <div className="rating1 text-dark me-3">
+
+        <small className='text-dark fw-normal'> <img src={imdb} alt='rating 1' className='w-25'/>&nbsp;&nbsp;86.0/100</small>
+       
+      </div> 
+      <div className="rating2">
+       <small className='text-dark fw-normal'> <img src={tom} alt='rating2' className='w-25 text-dark'/>&nbsp;&nbsp;97%</small>
+       </div>
+     </div>
+                  <small className='text-secondary fw-normal mt-2 mb-3'>Action, Horror, Adventure</small>
                 </Link>
               ))
             }
-            
+            </div>
           </div>
         </section>
 </div>
