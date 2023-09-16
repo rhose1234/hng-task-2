@@ -91,26 +91,29 @@ function Home() {
         <div className="container">
           <div className="row d-flex gx-5">
             {movies.slice(0, 18).map((movie, i) => (
-              <Link to=''
-                className={`mt-5  p-3 mb-5 col-lg-4 col-md-12 movie-box ${
+              <Link  to={`/movies/${movie.id}`} key={i}
+                data-testid="movie-box" className='mt-5 movie-box p-3 mb-5 col-lg-4 col-md-12'>
+                  
+              <div 
+                className={`  ${
                   movie.isFavorite ? 'clicked' : ''
                 }`}
                 key={i}
                 data-testid="movie-box"
               >
                 <i
-  className={`bi bi-heart-fill position-absolute w-50 p-4 top-4 end-4 cursor-pointer ${
-    movie.isFavorite ? 'text-danger' : 'text-white'
-  }`}
-  onClick={() => toggleFavorite(movie.id)}
-></i>
+                  className={`bi bi-heart-fill position-absolute w-50 p-4 top-4 end-4 cursor-pointer ${
+                    movie.isFavorite ? 'text-danger' : 'text-white'
+                  }`}
+                  onClick={() => toggleFavorite(movie.id)}
+                ></i>
 
                 <img
                   data-testid="movie-img"
                   src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                   alt="movie-img"
                   className="w-100"
-                  to={`/movies/${movie.id}`} 
+                  
                 />
                 <div className="text-secondary fw-bold mt-2 mb-3">
                   USA <span data-testid="release-date">{movie.release_date}</span>
@@ -135,10 +138,16 @@ function Home() {
                   </div>
                 </div>
                 <small className="text-secondary fw-normal mt-2 mb-3">Action, Horror, Adventure</small>
+                
+             </div>
+            
              </Link>
             ))}
+            
+          
           </div>
         </div>
+          
       </section>
     </div>
   );

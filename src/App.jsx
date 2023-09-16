@@ -4,7 +4,6 @@ import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import MovieDetail from './components/MovieDetail'; 
-// import Error from './components/Error'; 
 
 function App() {
   return (
