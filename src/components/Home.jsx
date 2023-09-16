@@ -77,11 +77,11 @@ function Home() {
           </div>
 
         
-          <div className=' container col movie-card'>
+          <div className=' container col col-md-12 movie-card'>
             <div className="row gx-5">
 
             {
-              movies.slice(0, 20).map((movie, i) => (
+              movies.slice(0, 16).map((movie, i) => (
                 <Link to={`/movies/${movie.id}`} className='mt-5 w-25' key={i} data-testid='movie-box'>
                   <img data-testid="movie-img" src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt='movie-img' className=' w-100'/>
                   <div className=' text-secondary fw-bold mt-2 mb-3'>USA <span data-testid="release-date">{movie.release_date}</span></div>

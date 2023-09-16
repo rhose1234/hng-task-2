@@ -9,10 +9,10 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-      
+        <Route path="/Hng-task-2" element={<Home />} />
+       
       </Routes>
-      <Footer/>
+      <Footer />
     </Router>
   );
 }
