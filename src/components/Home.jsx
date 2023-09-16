@@ -92,7 +92,7 @@ function Home() {
           <div className="row d-flex gx-5">
             {movies.slice(0, 18).map((movie, i) => (
               <Link to=''
-                className={`mt-5 mx-auto pt-3 mb-5 col-lg-4 col-md-12 movie-box ${
+                className={`mt-5  p-3 mb-5 col-lg-4 col-md-12 movie-box ${
                   movie.isFavorite ? 'clicked' : ''
                 }`}
                 key={i}
