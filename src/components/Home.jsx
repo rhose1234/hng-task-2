@@ -91,7 +91,7 @@ function Home() {
         <div className="container">
           <div className="row d-flex gx-5">
             {movies.slice(0, 18).map((movie, i) => (
-              <Link to={`/movies/${movie.id}`} 
+              <Link to=''
                 className={`mt-5 mx-auto pt-3 mb-5 col-lg-4 col-md-12 movie-box ${
                   movie.isFavorite ? 'clicked' : ''
                 }`}
@@ -110,6 +110,7 @@ function Home() {
                   src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                   alt="movie-img"
                   className="w-100"
+                  to={`/movies/${movie.id}`} 
                 />
                 <div className="text-secondary fw-bold mt-2 mb-3">
                   USA <span data-testid="release-date">{movie.release_date}</span>
