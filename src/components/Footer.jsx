@@ -24,9 +24,9 @@ function Footer() {
 
 <div className="container">
     <div className="text align-item-center justify-content-center row mt-3 mb-3 ">
-<h5 className="footer-link col-lg-3 col-md-12">Condition Of Use </h5>
-<h5 className="footer-link col-lg-3 col-md-12">Privacy & Policy </h5>
-<h5 className="footer-link col-lg-3 col-md-12">Press Room</h5>
+<h5 className="footer-link col-12">Condition Of Use </h5>
+<h5 className="footer-link col-12">Privacy & Policy </h5>
+<h5 className="footer-link col-12">Press Room</h5>
     </div>
     </div>
     
