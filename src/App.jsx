@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import MovieDetail from './components/MovieDetail'; // Import MovieDetail component separately
-import Error from './components/Error'; // Import Error component separately
+import MovieDetail from './components/MovieDetail'; 
+// import Error from './components/Error'; 
 
 function App() {
   return (

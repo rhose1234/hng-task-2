@@ -29,7 +29,7 @@ function Navbar() {
                 <input className="  " type="search" placeholder="What do you want to watch?" aria-label="Search"/>
                  <i className="bi bi-search"></i>
                 </div>
-                    <ul className="ms-auto d-flex">
+                    <ul className="ms-auto d-lg-flex d-none">
                         <li className="nav-item">
                     <Link to="" className="nav-link text-white" href="#">Sign in</Link>
                     </li>
