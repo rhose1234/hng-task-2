@@ -57,7 +57,7 @@ export default function MovieDetail() {
           ))}
         </div>
         <div className="mt-2">
-          <span className="font-weight-bold text-danger">
+          <span className="fw-bold text-danger">
             Production Countries:
           </span>
           {res.production_countries?.map((com, i) => (
@@ -75,7 +75,7 @@ export async function MovieLoader({ params }) {
   try {
     const { id } = params;
     const url = `https://api.themoviedb.org/3/movie/${id}`;
-    const apiKey = import.meta.env.API_KEY;
+    const apiKey = import.meta.env.VITE_API_KEY;
     const config = {
       headers: {
         Authorization: `Bearer ${apiKey}`,

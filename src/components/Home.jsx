@@ -6,7 +6,7 @@ import tom from '../assets/img/tomato.svg';
 
 
 function Home() {
-  const apiKey = import.meta.env.API_KEY;
+  const apiKey = import.meta.env.VITE_API_KEY;
   const [movies, setMovies] = useState([]);
 
   const toggleFavorite = (movieId) => {
