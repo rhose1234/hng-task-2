@@ -1,44 +1,54 @@
-import {useEffect, useState} from 'react';
-import { Link } from 'react-router-dom';
-import imdb from "../assets/img/imdb.svg";
-import tom from "../assets/img/tomato.svg";
+import React, { useEffect, useState } from 'react';
+// import { Link } from 'react-router-dom';
+import imdb from '../assets/img/imdb.svg';
+import tom from '../assets/img/tomato.svg';
 
 
 
 function Home() {
-  const apiKey = import.meta.env.API_KEY
-  // const appName = import.meta.env.VITE_APP_NAME;
-  const [movies, setMovies]=useState([])
+  const apiKey = import.meta.env.API_KEY;
+  const [movies, setMovies] = useState([]);
+
+  const toggleFavorite = (movieId) => {
+    
+    setMovies((prevMovies) =>
+      prevMovies.map((movie) =>
+        movie.id === movieId
+          ? { ...movie, isFavorite: !movie.isFavorite }
+          : movie
+      )
+    );
+  };
 
   const url = 'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1';
   const config = {
     method: 'GET',
     headers: {
-      'Authorization': `Bearer ${apiKey}`,
-      'Content-Type': 'application/json'
-    }
-  }
-  
+      Authorization: `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
+    },
+  };
+
   useEffect(() => {
     fetch(url, config)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response not ok');
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log(data.results);
-      setMovies(data.results)
-    })
-    .catch(error => {
-      console.error('Fetch error:', error);
-    });
-  }, [])
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Network response not ok, status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data.results);
+        setMovies(data.results);
+      })
+      .catch((error) => {
+        console.error('Fetch error:', error);
+      });
+  }, []);
 
   return (
-<div>   
-    <section id="hero" className="hero vh-100 ">
+    <div>
+     <section id="hero" className="hero vh-100 ">
       <div className="container">
     <div className=" col-lg-6 col-md-12  pt-5 align-items-center d-block justify-content-center">
      <h1 className="text-white display-4 fw-bold ">John Wick 3 : <br></br> Parabellum</h1>
@@ -66,46 +76,63 @@ function Home() {
     </div>
     </section>
 
-        <section className='pt-5 pb-5'>
-          <div className='d-flex justify-content-between p-5'>
-            <div className="">
-            <h3 className='display-4 fw-bold'>Featured Movies</h3>
-            </div>
-            <div className="">
-            <div className='text-danger h5'>See more </div>
-            </div>
+      <section className="pt-5 pb-5">
+        <div className="container d-flex justify-content-between p-5">
+          <h3 className="display-4 fw-bold">Featured Movies</h3>
+          <div className="text-danger h5 mt-3">See more</div>
+        </div>
+
+        <div className="container">
+          <div className="row d-flex gx-5">
+            {movies.slice(0, 16).map((movie, i) => (
+              <div
+                className={`mt-5 mx-auto pt-3 mb-5 col-lg-4 col-md-12 movie-box ${
+                  movie.isFavorite ? 'clicked' : ''
+                }`}
+                key={i}
+                data-testid="movie-box"
+              >
+                <i
+                  className={`bi bi-heart-fill position-absolute w-50 p-4 top-4 end-4 cursor-pointer ${
+                    movie.isFavorite ? 'text-danger' : 'text-white'
+                  }`}
+                  onClick={() => toggleFavorite(movie.id)}
+                ></i>
+                <img
+                  data-testid="movie-img"
+                  src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                  alt="movie-img"
+                  className="w-100"
+                />
+                <div className="text-secondary fw-bold mt-2 mb-3">
+                  USA <span data-testid="release-date">{movie.release_date}</span>
+                </div>
+                <div className="font-bold h5 text-dark mt-2 mb-3" data-testid="title">
+                  {movie.title}
+                </div>
+                <div className="d-flex justify-content-between mt-3 mb-3 fw-normal">
+                  <div className="rating1 text-dark">
+                    <small className="text-dark fw-normal">
+                      {' '}
+                      <img src={imdb} alt="rating 1" className="w-25" />
+                      &nbsp;&nbsp;86.0/100
+                    </small>
+                  </div>
+                  <div className="rating2">
+                    <small className="text-dark fw-normal">
+                      {' '}
+                      <img src={tom} alt="rating2" className="w-25 text-dark" />
+                      &nbsp;&nbsp;97%
+                    </small>
+                  </div>
+                </div>
+                <small className="text-secondary fw-normal mt-2 mb-3">Action, Horror, Adventure</small>
+              </div>
+            ))}
           </div>
-
-        
-          <div className=' container col col-md-12 movie-card'>
-            <div className="row gx-5">
-
-            {
-              movies.slice(0, 16).map((movie, i) => (
-                <Link to={`/movies/${movie.id}`} className='mt-5 w-25' key={i} data-testid='movie-box'>
-                  <img data-testid="movie-img" src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt='movie-img' className=' w-100'/>
-                  <div className=' text-secondary fw-bold mt-2 mb-3'>USA <span data-testid="release-date">{movie.release_date}</span></div>
-                  <div className='font-bold h5 text-dark mt-2 mb-3' data-testid='title'>{movie.title}</div>
-                  <div className="d-flex justify-content-between mt-3 mb-3 fw-normal">
-      <div className="rating1 text-dark me-3">
-
-        <small className='text-dark fw-normal'> <img src={imdb} alt='rating 1' className='w-25'/>&nbsp;&nbsp;86.0/100</small>
-       
-      </div> 
-      <div className="rating2">
-       <small className='text-dark fw-normal'> <img src={tom} alt='rating2' className='w-25 text-dark'/>&nbsp;&nbsp;97%</small>
-       </div>
-     </div>
-                  <small className='text-secondary fw-normal mt-2 mb-3'>Action, Horror, Adventure</small>
-                </Link>
-              ))
-            }
-            </div>
-          </div>
-        </section>
-
-       
-</div>
+        </div>
+      </section>
+    </div>
   );
 }
 

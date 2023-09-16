@@ -4,13 +4,17 @@
   margin: 0 ;
 }
 
+body{
+  overflow-x: hidden !important;
+}
 
 #hero {
   background-image: url('./assets/img/Poster.svg');
   background-position: center;
   background-size: cover;
   color: #fff !important;
-  padding-top: 130px !important;
+ 
+  padding-top: 120px !important; 
 
 }
 input{
@@ -71,4 +75,18 @@ div.movie-card {
 .socials img{
   width: 25px !important;
   margin-left: 20px;
+}
+.text h5{
+  margin-left:0px !important;
+}
+
+.clicked {
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+ 
+}
+
+.bi-heart-fill{
+  color: #BE123C !important;
+  font-size: 30px !important;
 }

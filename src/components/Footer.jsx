@@ -22,10 +22,12 @@ function Footer() {
         <Link to=""><img src={youtube} className='w-25' /></Link>
     </div>
 
-    <div className="text d-flex justify-content-center gx-5 mb-3">
-<h5 className="footer-link me-4">Condition Of Use </h5>
-<h5 className="footer-link me-4">Privacy & Policy </h5>
-<h5 className="footer-link">Press Room</h5>
+<div className="container">
+    <div className="text align-item-center justify-content-center row mt-3 mb-3 ">
+<h5 className="footer-link col-lg-3 col-md-12">Condition Of Use </h5>
+<h5 className="footer-link col-lg-3 col-md-12">Privacy & Policy </h5>
+<h5 className="footer-link col-lg-3 col-md-12">Press Room</h5>
+    </div>
     </div>
     
     <div className='h6'>&copy; 2023 MovieBox by Marvelous💖</div>

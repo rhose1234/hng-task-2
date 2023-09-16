@@ -25,7 +25,7 @@ function Navbar() {
           <nav className={`navbar navbar-expand-lg fixed-top p-3 ${scrolling ? 'bg-white' : '.navbar.bg-white'}`}>
             <div className="container">
                 <Link to="" className="navbar-brand fw-bold"> <img src={logo} alt="logo" className='w-25 '/>&nbsp; MovieBox  </Link>
-                <div className="search d-flex me-auto ms-auto" role="search">
+                <div className="search d-lg-flex d-none me-auto ms-auto" role="search">
                 <input className="  " type="search" placeholder="What do you want to watch?" aria-label="Search"/>
                  <i className="bi bi-search"></i>
                 </div>
