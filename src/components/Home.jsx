@@ -4,8 +4,10 @@ import imdb from "../assets/img/imdb.svg";
 import tom from "../assets/img/tomato.svg";
 
 
+
 function Home() {
   const apiKey = import.meta.env.API_KEY
+  // const appName = import.meta.env.VITE_APP_NAME;
   const [movies, setMovies]=useState([])
 
   const url = 'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1';
@@ -64,7 +66,7 @@ function Home() {
     </div>
     </section>
 
-        <section className='vh-100 '>
+        <section className='pt-5 pb-5'>
           <div className='d-flex justify-content-between p-5'>
             <div className="">
             <h3 className='display-4 fw-bold'>Featured Movies</h3>
@@ -79,7 +81,7 @@ function Home() {
             <div className="row gx-5">
 
             {
-              movies.slice(0, 10).map((movie, i) => (
+              movies.slice(0, 20).map((movie, i) => (
                 <Link to={`/movies/${movie.id}`} className='mt-5 w-25' key={i} data-testid='movie-box'>
                   <img data-testid="movie-img" src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt='movie-img' className=' w-100'/>
                   <div className=' text-secondary fw-bold mt-2 mb-3'>USA <span data-testid="release-date">{movie.release_date}</span></div>
@@ -101,6 +103,8 @@ function Home() {
             </div>
           </div>
         </section>
+
+       
 </div>
   );
 }

@@ -1,35 +1,41 @@
+import { Link } from 'react-router-dom';
+import facebook from '../assets/img/facebook.svg';
+import twitter from '../assets/img/twitter.svg';
+import instagram from '../assets/img/instagram.svg';
+import youtube from '../assets/img/youtube.svg';
 
-import logo from '../assets/img/logo.svg';
-import menu from '../assets/img/Menu.svg';
-
-function Navbar() {
+function Footer() {
 
     return(
 
-        <div>
-            <header>
-            <nav className="navbar navbar-expand-xl  fixed-top">
-            <div className="container">
-                <a className="navbar-brand fw-bold"> <img src={logo} alt="logo" className='w-25 '/>&nbsp; MovieBox  </a>
-                <div className="search d-flex me-auto ms-auto" role="search">
-                <input className="  " type="search" placeholder="What do you want to watch?" aria-label="Search"/>
-                 <i className="bi bi-search"></i>
-                </div>
-                    <ul className="ms-auto d-flex">
-                        <li className="nav-item">
-                    <a className="nav-link text-white" href="#">Sign in</a>
-                    </li>
-                     <li className="nav-item">
-                    <a className="nav-link ms-5" href="#"><img className='w-75' src={menu} /></a>
-                    </li>
-                        </ul>
+        <>
+        <footer className='bg-white p-5 mt-5 pt-5'>
+     <div class=" text-center">
+  <div class="card-header">
+    
+  </div>
+  <div class="card-body">
+    <div className="socials d-block mb-3">
+        <Link to=""><img src={facebook} className='w-25' /></Link>
+        <Link to=""><img src={twitter} className='w-25'/></Link>
+        <Link to=""><img src={instagram} className='w-25'/></Link>
+        <Link to=""><img src={youtube} className='w-25' /></Link>
+    </div>
 
-            </div>
-            </nav>
-            </header>
-        </div>
+    <div className="text d-flex justify-content-center gx-5 mb-3">
+<h5 class="footer-link me-4">Condition Of Use </h5>
+<h5 class="footer-link me-4">Privacy & Policy </h5>
+<h5 class="footer-link">Press Room</h5>
+    </div>
+    
+    <div className='h6'>&copy; 2023 MovieBox by Marvelous💖</div>
+    
+  </div>
+</div>
+        </footer>
+        </>
     );
 }
 
-export default Navbar;
+export default Footer;
     

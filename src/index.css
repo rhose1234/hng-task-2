@@ -30,14 +30,24 @@ input::placeholder{
   color: #fff !important;
   position: absolute !important;
   right: 35%;
-  top: 28%;
-  
+  top: 28%;  
  
 }
 
+ .navbar {
+   transition: background-color 0.3s;
+ }
+
+ .navbar.bg-white {
+   background-color: rgba(190, 18, 60, 0.8) !important;
+   box-shadow: 0 2px 4px rgba(22, 17, 17, 0.1);
  
+ }
 .navbar-brand{
   color: #fff !important;
+}
+.navbar ul li.nav-item::marker{
+  display: none !important;
 }
 /* #hero p{
   font-weight: 500 !important;
@@ -57,4 +67,8 @@ button{
 div.movie-card {
   color: #000 !important;
   text-decoration: none !important;
+}
+.socials img{
+  width: 25px !important;
+  margin-left: 20px;
 }
