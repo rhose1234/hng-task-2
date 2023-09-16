@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import imdb from '../assets/img/imdb.svg';
 import tom from '../assets/img/tomato.svg';
 
@@ -10,15 +10,15 @@ function Home() {
   const [movies, setMovies] = useState([]);
 
   const toggleFavorite = (movieId) => {
-    
-    setMovies((prevMovies) =>
-      prevMovies.map((movie) =>
-        movie.id === movieId
-          ? { ...movie, isFavorite: !movie.isFavorite }
-          : movie
-      )
-    );
-  };
+  setMovies((prevMovies) =>
+    prevMovies.map((movie) =>
+      movie.id === movieId
+        ? { ...movie, isFavorite: !movie.isFavorite }
+        : movie
+    )
+  );
+};
+
 
   const url = 'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1';
   const config = {
@@ -38,9 +38,15 @@ function Home() {
         return response.json();
       })
       .then((data) => {
-        console.log(data.results);
+        const moviesWithFavorites = data.results.map((movie) => ({
+        ...movie,
+        isFavorite: false,
+      }));
+      setMovies(moviesWithFavorites);
+      console.log(data.results);
         setMovies(data.results);
-      })
+    })
+       
       .catch((error) => {
         console.error('Fetch error:', error);
       });
@@ -49,9 +55,9 @@ function Home() {
   return (
     <div>
      <section id="hero" className="hero vh-100 ">
-      <div className="container">
+      <div className="container pt-5">
     <div className=" col-lg-6 col-md-12  pt-5 align-items-center d-block justify-content-center">
-     <h1 className="text-white display-4 fw-bold ">John Wick 3 : <br></br> Parabellum</h1>
+     <h1 className="text-white display-4 fw-bold py-5">John Wick 3 : <br></br> Parabellum</h1>
      <div className="d-flex mt-3 mb-3 fw-normal">
       <div className="rating1">
 
@@ -84,8 +90,8 @@ function Home() {
 
         <div className="container">
           <div className="row d-flex gx-5">
-            {movies.slice(0, 16).map((movie, i) => (
-              <div
+            {movies.slice(0, 18).map((movie, i) => (
+              <Link to={`/movies/${movie.id}`} 
                 className={`mt-5 mx-auto pt-3 mb-5 col-lg-4 col-md-12 movie-box ${
                   movie.isFavorite ? 'clicked' : ''
                 }`}
@@ -93,11 +99,12 @@ function Home() {
                 data-testid="movie-box"
               >
                 <i
-                  className={`bi bi-heart-fill position-absolute w-50 p-4 top-4 end-4 cursor-pointer ${
-                    movie.isFavorite ? 'text-danger' : 'text-white'
-                  }`}
-                  onClick={() => toggleFavorite(movie.id)}
-                ></i>
+  className={`bi bi-heart-fill position-absolute w-50 p-4 top-4 end-4 cursor-pointer ${
+    movie.isFavorite ? 'text-danger' : 'text-white'
+  }`}
+  onClick={() => toggleFavorite(movie.id)}
+></i>
+
                 <img
                   data-testid="movie-img"
                   src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
@@ -127,7 +134,7 @@ function Home() {
                   </div>
                 </div>
                 <small className="text-secondary fw-normal mt-2 mb-3">Action, Horror, Adventure</small>
-              </div>
+             </Link>
             ))}
           </div>
         </div>
