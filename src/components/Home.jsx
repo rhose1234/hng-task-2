@@ -85,7 +85,7 @@ function Home() {
       <section className="pt-5 pb-5">
         <div className="container d-flex justify-content-between ">
           <h5 className=" fw-bold">Featured Movies</h5>
-          <div className="text-danger h6 mt-3">See more</div>
+          <div className="text-danger h6 ">See more</div>
         </div>
 
         <div className="container">
