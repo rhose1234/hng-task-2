@@ -90,7 +90,7 @@ function Home() {
 
         <div className="container">
           <div className="row d-flex gx-5">
-            {movies.slice(0, 18).map((movie, i) => (
+            {movies.slice(0, 10).map((movie, i) => (
               <Link  to={`/movies/${movie.id}`} key={i}
                 data-testid="movie-box" className='mt-5 movie-box p-3 mb-5 col-lg-4 col-md-12'>
                   
