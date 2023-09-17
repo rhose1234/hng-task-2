@@ -97,8 +97,7 @@ export default function MovieDetail() {
       </div>
     </main>
   );
-}
-￼Enter      .catch((error) => {
+}   .catch((error) => {
         console.error('Fetch error:', error);
       });
   }, [id]);
