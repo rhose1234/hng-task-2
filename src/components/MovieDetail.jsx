@@ -34,6 +34,10 @@ export default function MovieDetail() {
     return <div>Loading...</div>;
   }
 
+  // Split the runtime into separate elements
+  const runtimeMinutes = movie.runtime;
+  const runtimeText = `${runtimeMinutes}m`;
+
   return (
     <main className="container mt-5 pt-5 py-5">
       <div>
@@ -55,7 +59,7 @@ export default function MovieDetail() {
           </div>
           <span>◾</span>
           <div className="font-weight-bold mr-4">
-            <span data-testid="movie-runtime">{movie.runtime}</span>m
+            <span data-testid="movie-runtime">{runtimeText}</span>
           </div>
           {movie.genres.map((item) => (
             <div
