@@ -7,42 +7,9 @@ export default function MovieDetail() {
 
   useEffect(() => {
     const apiKey = import.meta.env.VITE_API_KEY;
-    const url = `https://api.themoviedb.org/3/movie/${id}`;
-    const config = {
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-      },
-    };
-
-    fetch(url, config)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Network response not ok, status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setMovie(data);
-      })
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-
-export default function MovieDetail() {
-  const { id } = useParams();
-  const [movie, setMovie] = useState(null);
-
-  useEffect(() => {
-    const apiKey = import.meta.env.VITE_API_KEY;
-    const url = `https://api.themoviedb.org/3/movie/${id}`;
-    const config = {
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-      },
-    };
-
-    fetch(url, config)
+    const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`; // Added the API key and language query parameters.
+    
+    fetch(url)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`Network response not ok, status: ${response.status}`);
@@ -64,6 +31,7 @@ export default function MovieDetail() {
   // Split the runtime into separate elements
   const runtimeMinutes = movie.runtime;
   const runtimeText = `${runtimeMinutes}m`;
+
 
   return (
     <main className="container mt-5 pt-5 py-5">
