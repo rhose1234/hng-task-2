@@ -99,7 +99,7 @@ function Home() {
                   movie.isFavorite ? 'clicked' : ''
                 }`}
                 key={i}
-                data-testid="movie-box"
+                data-testid="movie-card"
               >
                 <i
                   className={`bi bi-heart-fill position-absolute w-50 p-4 top-4 end-4 cursor-pointer ${
@@ -109,16 +109,16 @@ function Home() {
                 ></i>
 
                 <img
-                  data-testid="movie-img"
+                  data-testid="movie-poster"
                   src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                  alt="movie-img"
+                  alt="movie-poster"
                   className="w-100"
                   
                 />
                 <div className="text-secondary fw-bold mt-2 mb-3">
-                  USA <span data-testid="release-date">{movie.release_date}</span>
+                  USA <span data-testid="movie-release-date">{movie.release_date}</span>
                 </div>
-                <div className="font-bold h5 text-dark mt-2 mb-3" data-testid="title">
+                <div className="font-bold h5 text-dark mt-2 mb-3" data-testid="movie-title">
                   {movie.title}
                 </div>
                 <div className="d-flex justify-content-between mt-3 mb-3 fw-normal">
