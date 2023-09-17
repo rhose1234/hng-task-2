@@ -51,11 +51,11 @@ export default function MovieDetail() {
         />
         <div className="d-flex gap-2 my-3 flex-wrap">
           <div className="font-weight-bold" data-testid="movie-title">
-            {movie.title}
+            {movie-title}
           </div>
           <span>◾</span>
           <div className="font-weight-bold" data-testid="movie-release-date">
-            {movie.release_date}
+            {movie-release-date}
           </div>
           <span>◾</span>
           <div className="font-weight-bold mr-4">
