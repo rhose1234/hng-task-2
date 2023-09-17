@@ -7,8 +7,8 @@ export default function MovieDetail() {
 
   useEffect(() => {
     const apiKey = import.meta.env.VITE_API_KEY;
-    const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`; // Added the API key and language query parameters.
-    
+    const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`;
+
     fetch(url)
       .then((response) => {
         if (!response.ok) {
@@ -28,10 +28,8 @@ export default function MovieDetail() {
     return <div>Loading...</div>;
   }
 
-  // Split the runtime into separate elements
   const runtimeMinutes = movie.runtime;
   const runtimeText = `${runtimeMinutes}m`;
-
 
   return (
     <main className="container mt-5 pt-5 py-5">
@@ -97,55 +95,4 @@ export default function MovieDetail() {
       </div>
     </main>
   );
-}   .catch((error) => {
-        console.error('Fetch error:', error);
-      });
-  }, [id]);
-
-  if (!movie) {
-    return <div>Loading...</div>;
-  }
-
-  // Split the runtime into separate elements
-  const runtimeMinutes = movie.runtime;
-  const runtimeText = `${runtimeMinutes}m`;
-
-  return (
-    <main className="container mt-5 pt-5 py-5">
-      <div>
-        <img
-          src={
-            movie.backdrop_path &&
-            `https://image.tmdb.org/t/p/original${movie.backdrop_path}`
-          }
-          alt=""
-          className="rounded-xl img-fluid"
-        />
-        <div className="d-flex gap-2 my-3 flex-wrap">
-          <div className="font-weight-bold" data-testid="movie-title">
-      {movie.title}
-          </div>
-          <span>◾</span>
-          <div className="font-weight-bold" data-testid="movie-release-date">
-            {movie.release_date}
-          </div>
-          <span>◾</span>
-          <div className="font-weight-bold mr-4">
-            <span data-testid="movie-runtime">{runtimeText}</span>
-          </div>
-          {movie.genres.map((item) => (
-            <div
-              key={item.id}
-              className="text-sm border border-danger text-danger py-1 px-2 font-weight-bold rounded-xl"
-            >
-              {item.name}
-            </div>
-          ))}
-        </div>
-      </div>
-      <p data-testid="movie-overview" className="my-2">
-        {movie.overview}
-      </p>
-      <div className="mt-2">
-        <div>
-          <span className="font-weight-bold text-danger">
+}
