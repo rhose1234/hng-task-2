@@ -7,14 +7,16 @@ import MovieDetail from './components/MovieDetail';
 
 function App() {
   return (
+    <div className='App'>
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" index="true" element={<Home />} />
         <Route path="/movies/:id" element={<MovieDetail />} />
       </Routes>
       <Footer />
     </Router>
+    </div>
   );
 }
 
