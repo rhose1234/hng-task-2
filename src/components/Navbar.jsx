@@ -30,7 +30,7 @@ function Navbar() {
                  <i className="bi bi-search"></i>
                 </div>
                     <ul className="ms-auto d-lg-flex d-none">
-                        <li className="nav-item">
+                      <li className="nav-item">
                     <Link to="" className="nav-link text-white" href="#">Sign in</Link>
                     </li>
                      <li className="nav-item">
