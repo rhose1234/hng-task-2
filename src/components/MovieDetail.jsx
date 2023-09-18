@@ -6,7 +6,7 @@ export default function MovieDetail() {
   const [movie, setMovie] = useState(null);
 
   const formatDateToUTCString = (dateString) => {
-  const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+  const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
   const dateInLocalTime = new Date(dateString);
   const dateInUTC = new Date(dateInLocalTime.getTime() + dateInLocalTime.getTimezoneOffset() * 60000);
   return dateInUTC.toLocaleDateString(undefined, options);
@@ -67,7 +67,7 @@ export default function MovieDetail() {
           </div>
           <span>◾</span>
           <div className="font-weight-bold mr-4">
-            <span data-testid="movie-runtime">{runtimeText} </span>
+            <span data-testid="movie-runtime">{runtimeText}<small>min</small></span>
           </div>
           {movie.genres.map((item) => (
             <div
