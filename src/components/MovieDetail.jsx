@@ -6,10 +6,10 @@ export default function MovieDetail() {
   const [movie, setMovie] = useState(null);
 
   const formatDateToUTCString = (dateString) => {
-  const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+  const options = { weekday: 'short', day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'short' };
   const dateInLocalTime = new Date(dateString);
   const dateInUTC = new Date(dateInLocalTime.getTime() + dateInLocalTime.getTimezoneOffset() * 60000);
-  return dateInUTC.toLocaleDateString(undefined, options);
+  return dateInUTC.toLocaleDateString('en-US', options);
 };
 
   useEffect(() => {
