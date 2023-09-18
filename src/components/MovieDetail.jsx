@@ -84,6 +84,7 @@ export default function MovieDetail() {
             <div className="d-flex gap-2" key={com.id}>
               <img
                 className="img-fluid w-50"
+                data-testid="movie-poster"
                 src={`https://image.tmdb.org/t/p/original${com.logo_path}`}
                 alt=""
               />
