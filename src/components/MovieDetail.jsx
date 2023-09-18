@@ -9,8 +9,7 @@ export default function MovieDetail() {
   const formatDateToUTCString = (dateString) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(dateString).toLocaleDateString(undefined, options);
-  };
-
+ 
 
   useEffect(() => {
     const apiKey = import.meta.env.VITE_API_KEY;
@@ -21,6 +20,7 @@ export default function MovieDetail() {
         'Content-Type': 'application/json',
       },
     };
+  };
 
     fetch(url, config)
       .then((response) => {
