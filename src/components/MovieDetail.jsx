@@ -6,14 +6,16 @@ export default function MovieDetail() {
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
-  const apiKey = import.meta.env.VITE_API_KEY;
-  const url = `https://api.themoviedb.org/3/movie/${id}?language=en-US`;
+    const apiKey = 'YOUR_API_KEY'; // Replace with your actual API key
+    const url = `https://api.themoviedb.org/3/movie/${id}?language=en-US`;
 
-  fetch(url, {
-    headers: {
-      'Authorization': `Bearer ${apiKey}`,
-    },
-    fetch(url)
+    // Define headers for the API request
+    const headers = {
+      Authorization: `Bearer ${apiKey}`, // If your API requires an Authorization header
+      // Other headers if needed
+    };
+
+    fetch(url, { headers })
       .then((response) => {
         if (!response.ok) {
           throw new Error(`Network response not ok, status: ${response.status}`);
