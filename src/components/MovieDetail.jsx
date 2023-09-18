@@ -37,7 +37,7 @@ export default function MovieDetail() {
 
   // Split the runtime into separate elements
   const runtimeMinutes = movie.runtime;
-  const runtimeText = `${runtimeMinutes}m`;
+  const runtimeText = `${runtimeMinutes}`;
 
   return (
     <main className="container mt-5 pt-5 py-5" data-testid="movie-card" >
