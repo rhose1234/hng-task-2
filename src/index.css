@@ -73,6 +73,7 @@ button{
 div.movie-card {
   color: #000 !important;
   text-decoration: none !important;
+  padding:25px !important ;
 }
 .socials img{
   width: 25px !important;
