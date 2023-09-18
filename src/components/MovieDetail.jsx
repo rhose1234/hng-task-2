@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -9,7 +8,7 @@ export default function MovieDetail() {
   const formatDateToUTCString = (dateString) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(dateString).toLocaleDateString(undefined, options);
- 
+  };
 
   useEffect(() => {
     const apiKey = import.meta.env.VITE_API_KEY;
@@ -20,7 +19,6 @@ export default function MovieDetail() {
         'Content-Type': 'application/json',
       },
     };
-  };
 
     fetch(url, config)
       .then((response) => {
@@ -46,7 +44,7 @@ export default function MovieDetail() {
   const runtimeText = `${runtimeMinutes}`;
 
   return (
-    <main className="container mt-5 pt-5 py-5" data-testid="movie-card" >
+    <main className="container mt-5 pt-5 py-5" data-testid="movie-card">
       <div>
         <img
           src={
@@ -56,7 +54,6 @@ export default function MovieDetail() {
           alt=""
           className="rounded-xl img-fluid"
           data-testid="movie-poster"
-         
         />
         <div className="d-flex gap-2 my-3 flex-wrap">
           <div className="font-weight-bold" data-testid="movie-title">
@@ -64,13 +61,11 @@ export default function MovieDetail() {
           </div>
           <span>◾</span>
           <div className="font-weight-bold" data-testid="movie-release-date">
-            {movie.release_date}
             {formatDateToUTCString(movie.release_date)}
-        
           </div>
           <span>◾</span>
           <div className="font-weight-bold mr-4">
-            <span data-testid="movie-runtime">{runtimeText}</span>
+            <span data-testid="movie-runtime">{runtimeText} min</span>
           </div>
           {movie.genres.map((item) => (
             <div
@@ -90,11 +85,11 @@ export default function MovieDetail() {
           <span className="font-weight-bold text-danger">
             Production Company:
           </span>
-          {movie.production_companies?.map((com) => (
-            <div className="d-flex gap-2" key={com.id}>
+          {movie.production_companies?.map((com, i) => (
+            <div className="d-flex gap-2" key={i}>
               <img
                 className="img-fluid w-50"
-                data-testid="movie-poster"
+                data-testid={`production-company-${i}`}
                 src={`https://image.tmdb.org/t/p/original${com.logo_path}`}
                 alt=""
               />
@@ -114,4 +109,4 @@ export default function MovieDetail() {
       </div>
     </main>
   );
-             }
+}
