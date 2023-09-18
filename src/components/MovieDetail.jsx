@@ -49,6 +49,8 @@ export default function MovieDetail() {
           }
           alt=""
           className="rounded-xl img-fluid"
+          data-testid="movie-poster"
+         
         />
         <div className="d-flex gap-2 my-3 flex-wrap">
           <div className="font-weight-bold" data-testid="movie-title">
