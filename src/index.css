@@ -13,7 +13,7 @@ body{
 #hero {
   background-image: url('./assets/img/Poster.svg');
   background-position: center;
-  background-size: cover;
+  background-size: cover !important;
   color: #fff !important;
   
 }
