@@ -6,9 +6,13 @@ export default function MovieDetail() {
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
-    const apiKey = import.meta.env.VITE_API_KEY;
-    const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`;
+  const apiKey = import.meta.env.VITE_API_KEY;
+  const url = `https://api.themoviedb.org/3/movie/${id}?language=en-US`;
 
+  fetch(url, {
+    headers: {
+      'Authorization': `Bearer ${apiKey}`,
+    },
     fetch(url)
       .then((response) => {
         if (!response.ok) {
