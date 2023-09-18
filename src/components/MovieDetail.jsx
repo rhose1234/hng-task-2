@@ -6,9 +6,11 @@ export default function MovieDetail() {
   const [movie, setMovie] = useState(null);
 
   const formatDateToUTCString = (dateString) => {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString(undefined, options);
-  };
+  const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+  const dateInLocalTime = new Date(dateString);
+  const dateInUTC = new Date(dateInLocalTime.getTime() + dateInLocalTime.getTimezoneOffset() * 60000);
+  return dateInUTC.toLocaleDateString(undefined, options);
+};
 
   useEffect(() => {
     const apiKey = import.meta.env.VITE_API_KEY;
@@ -65,7 +67,7 @@ export default function MovieDetail() {
           </div>
           <span>◾</span>
           <div className="font-weight-bold mr-4">
-            <span data-testid="movie-runtime">{runtimeText} min</span>
+            <span data-testid="movie-runtime">{runtimeText} </span>
           </div>
           {movie.genres.map((item) => (
             <div
