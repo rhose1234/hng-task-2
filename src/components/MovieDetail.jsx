@@ -6,6 +6,12 @@ export default function MovieDetail() {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
 
+  const formatDateToUTCString = (dateString) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+
+
   useEffect(() => {
     const apiKey = import.meta.env.VITE_API_KEY;
     const url = `https://api.themoviedb.org/3/movie/${id}`;
@@ -59,6 +65,8 @@ export default function MovieDetail() {
           <span>◾</span>
           <div className="font-weight-bold" data-testid="movie-release-date">
             {movie.release_date}
+            {formatDateToUTCString(movie.release_date)}
+        
           </div>
           <span>◾</span>
           <div className="font-weight-bold mr-4">
