@@ -6,7 +6,7 @@ export default function MovieDetail() {
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
-    const apiKey = 'YOUR_API_KEY'; // Replace with your actual API key
+    const apiKey = 'VITE_API_KEY'; // Replace with your actual API key
     const url = `https://api.themoviedb.org/3/movie/${id}?language=en-US`;
 
     // Define headers for the API request
