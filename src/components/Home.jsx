@@ -101,11 +101,11 @@ function Home() {
                 key={i}
               >
                 <i
-                  className={`bi bi-heart-fill position-absolute w-50 p-4 top-4 end-4 cursor-pointer ${
-                    movie.isFavorite ? 'text-danger' : 'text-white'
-                  }`}
-                  onClick={() => toggleFavorite(movie.id)}
-                ></i>
+  className={`bi bi-heart-fill position-absolute w-50 p-4 top-4 end-4 cursor-pointer ${
+    movie.isFavorite ? 'text-danger' : 'text-white'
+  }`}
+  onClick={() => toggleFavorite(movie.id)}
+></i>
 
                 <img
                   data-testid="movie-poster"
