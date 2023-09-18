@@ -14,9 +14,8 @@ body{
   background-image: url('./assets/img/Poster.svg');
   background-position: center;
   background-size: cover;
-  width:100% !important;
   color: #fff !important;
-  padding-top: 120px !important; 
+  
 }
 
 input{
