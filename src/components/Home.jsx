@@ -99,7 +99,6 @@ function Home() {
                   movie.isFavorite ? 'clicked' : ''
                 }`}
                 key={i}
-                data-testid="movie-card"
               >
                 <i
                   className={`bi bi-heart-fill position-absolute w-50 p-4 top-4 end-4 cursor-pointer ${
