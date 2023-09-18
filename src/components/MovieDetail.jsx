@@ -40,7 +40,7 @@ export default function MovieDetail() {
   const runtimeText = `${runtimeMinutes}m`;
 
   return (
-    <main className="container mt-5 pt-5 py-5">
+    <main className="container mt-5 pt-5 py-5" data-testid="movie-card" >
       <div>
         <img
           src={
