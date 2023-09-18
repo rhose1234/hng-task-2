@@ -55,9 +55,9 @@ function Home() {
   return (
     <div>
      <section id="hero" className="hero vh-100 ">
-      <div className="container pt-4">
+      <div className="container ">
     <div className=" col-lg-6 col-md-12 d-block pt-5 align-items-center d-block justify-content-center">
-     <h1 className="text-white display-4 fw-bold ">John Wick 3 : <br></br> Parabellum</h1>
+     <h1 className="text-white display-4 fw-bold pt-5 mt-3">John Wick 3 : <br></br> Parabellum</h1>
      <div className="d-flex mt-3 mb-3 fw-normal">
       <div className="rating1">
 
